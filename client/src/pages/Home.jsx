@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Card, Form, Loader } from "../components";
 
 const RenderCards = ({ data, title }) => {
-  if (data?.length > 0)
+  if (data?.length > 0) {
     return data.map((post) => <Card key={post._id} {...post} />);
+  }
 
   return (
     <h2

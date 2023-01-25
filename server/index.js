@@ -20,7 +20,7 @@ app.use("/api/v1/ai", aiRoutes);
 
 // Create first route
 app.get("/", async (req, res) => {
-  res.send("hello from DALL-E"); // Ensure application is running
+  res.send("Hello!"); // Ensure application is running
 });
 
 // Run application
