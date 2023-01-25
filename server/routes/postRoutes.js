@@ -19,10 +19,11 @@ router.route("/").get(async (req, res) => {
   try {
     const posts = await Post.find({});
     res.status(200).json({ success: true, data: posts });
-  } catch (error) {
-    res
-      .status(500)
-      .json({ success: false, message: `${error} fetching posts failed` });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: "Fetching posts failed, please try again",
+    });
   }
 });
 
@@ -39,10 +40,13 @@ router.route("/").post(async (req, res) => {
     });
 
     res.status(200).json({ success: true, data: newPost });
-  } catch (error) {
+  } catch (err) {
     res
       .status(500)
-      .json({ success: false, message: `${error} unable to create post` });
+      .json({
+        success: false,
+        message: "Unable to create a post, please try again",
+      });
   }
 });
 

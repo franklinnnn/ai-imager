@@ -14,32 +14,6 @@ const CreatePost = () => {
   const [generateImg, setGenerateImg] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   if (form.prompt && form.photo) {
-  //     setLoading(true);
-  //     try {
-  //       const response = await fetch("http://localhost:8080/api/v1/post", {
-  //         method: "POST",
-  //         header: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({ ...form }),
-  //       });
-  //       await response.json();
-  //       alert("success");
-  //       navigate("/");
-  //     } catch (error) {
-  //       alert(error);
-  //       console.log(error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   } else {
-  //     alert("Enter prompt and generate image");
-  //   }
-  // };
-
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
