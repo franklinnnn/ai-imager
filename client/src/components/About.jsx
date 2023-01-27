@@ -3,7 +3,7 @@ import React from "react";
 const About = () => {
   return (
     <section
-      className="w-full mx-auto border-b-8 border-black py-8 bg-gradient-to-r from-[#D90429] to-[#EF233C]"
+      className="w-full mx-auto rounded-b-lg border-black py-8 bg-gradient-to-r from-[#D90429] to-[#EF233C] "
       id="about"
     >
       <div className="mx-4 flex items-center gap-4">

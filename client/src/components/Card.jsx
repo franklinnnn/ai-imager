@@ -7,10 +7,10 @@ import { BiCopy, BiDownload } from "react-icons/bi";
 const Card = ({ _id, name, prompt, photo }) => {
   return (
     <div
-      className="group relative shadow-card ease-in-out duration-300 border-4 border-black
-    border-r-8 border-b-8 hover:shadow-cardhover card hover:-translate-y-2"
+      className="group relative shadow-card ease-in-out duration-150 rounded-md border-4 border-black
+    border-r-8 border-b-8 hover:shadow-cardhover card hover:-translate-y-2 hover:border-4 hover:border-t-8 hover:border-l-8"
     >
-      <img className="w-full h-auto object-cover  " src={photo} alt={prompt} />
+      <img className="w-full h-auto object-cover" src={photo} alt={prompt} />
       <div className="group-hover:flex flex-col max-h-[94.5%] hidden absolute bottom-0 left-0 right-0 bg-white p-4 border-y-4 border-black -translate-y-4">
         <p className="text-black text-md font-bold overflow-y-auto prompt">
           {prompt}
@@ -30,14 +30,14 @@ const Card = ({ _id, name, prompt, photo }) => {
                 navigator.clipboard.writeText(prompt);
                 alert("copied prompt");
               }}
-              className="group flex justify-center items-center w-10 h-10 border-2 border-black bg-[#FFD25A] py-1"
+              className="group flex justify-center items-center w-10 h-10 rounded-md border-2 border-black bg-[#FFD25A] py-1"
             >
               <BiCopy className="w-6 h-6 ease-in-out duration-300 hover:scale-110" />
             </button>
             <button
               type="button"
               onClick={() => downloadImage(_id, photo)}
-              className="flex justify-center items-center w-10 h-10 border-2 border-black bg-[#2EC4B6] "
+              className="flex justify-center items-center w-10 h-10 rounded-md border-2 border-black bg-[#2EC4B6] "
             >
               {/* <img
                 src={download}

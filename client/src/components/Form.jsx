@@ -24,7 +24,7 @@ const Form = ({
           <button
             type="button"
             onClick={handleSurpriseMe}
-            className="font-unbounded font-semibold text-sx bg-[#ecf1f1] py-1 px-2 bg-red-500 border-2 border-b-4 border-r-4 border-black text-black hover:bg-[#FCBA04]"
+            className="font-unbounded font-semibold text-sx bg-[#ecf1f1] py-1 px-2 bg-red-500 rounded-md border-2 border-b-4 border-r-4 border-black text-black hover:bg-[#FCBA04] ease-in-out duration-100 hover:border-2 hover:border-t-4 hover:border-l-4"
           >
             Surprise me{" "}
           </button>
@@ -38,7 +38,7 @@ const Form = ({
         value={value}
         onChange={handleChange}
         required
-        className="bg-white/20 border-2 border-b-4 border-r-4 border-black font-barlow placeholder-gray-900 text-gray/50 text-m outline-none block w-full p-3 focus:bg-white"
+        className="bg-white/20 rounded-md border-2 border-b-4 border-r-4 border-black font-barlow placeholder-gray-900 text-gray/50 text-m outline-none block w-full p-3 focus:bg-white"
       />
     </div>
   );

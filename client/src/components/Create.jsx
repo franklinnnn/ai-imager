@@ -122,12 +122,12 @@ const CreatePost = () => {
             handleSurpriseMe={handleSurpriseMe}
           />
 
-          <div className="relative self-center bg-blue-50 border-4 border-black text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 w-80 h-80 p-2 flex justify-center items-center">
+          <div className="relative self-center bg-blue-50 rounded-md border-4 border-r-8 border-b-8 border-black text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 w-80 h-80 p-2 flex justify-center items-center hover:border-4 hover:border-t-8 hover:border-l-8 hover:-translate-y-2 ease-in-out duration-150">
             {form.photo ? (
               <img
                 src={form.photo}
                 alt={form.prompt}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain rounded-sm"
               />
             ) : (
               <img
@@ -149,7 +149,7 @@ const CreatePost = () => {
           <button
             type="button"
             onClick={generateImage}
-            className="font-unbounded font-bold text-lg bg-violet-500 w-80 py-4 border-2 border-r-4 border-b-4 border-black hover:bg-green-500"
+            className="font-unbounded font-bold text-lg bg-violet-500 w-80 py-4 rounded-md border-2 border-r-4 border-b-4 border-black hover:bg-green-500 ease-in-out duration-300 hover:-translate-y-1"
           >
             {generatingImg ? "Generating..." : "Generate"}
           </button>
@@ -163,13 +163,13 @@ const CreatePost = () => {
             <div className="flex justify-center gap-6 mt-4">
               <button
                 onClick={() => downloadImage(form.prompt, form.photo)}
-                className="font-unbounded font-bold bg-purple-500 w-36 py-4  border-2 border-r-4 border-b-4 border-black hover:bg-orange-500"
+                className="font-unbounded font-bold bg-purple-500 w-36 py-4 rounded-md border-2 border-r-4 border-b-4 border-black hover:bg-orange-500 ease-in-out duration-300 hover:-translate-y-1"
               >
                 Save
               </button>
               <button
                 onClick={handleSubmit}
-                className="font-unbounded font-bold bg-purple-500 w-36 py-4 border-2 border-r-4 border-b-4 border-black hover:bg-orange-500"
+                className="font-unbounded font-bold bg-purple-500 w-36 py-4 rounded-md border-2 border-r-4 border-b-4 border-black hover:bg-orange-500 ease-in-out duration-300 hover:-translate-y-1"
               >
                 {loading ? "Posting..." : "Post"}
               </button>
