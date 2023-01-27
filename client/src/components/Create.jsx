@@ -81,6 +81,10 @@ const CreatePost = () => {
         alert(err);
       } finally {
         setLoading(false);
+        window.location.reload(false);
+        document
+          .getElementById("gallery")
+          .scrollIntoView({ behavior: "smooth" });
       }
     } else {
       alert("Please generate an image with proper details");
@@ -161,7 +165,7 @@ const CreatePost = () => {
                 onClick={() => downloadImage(form.prompt, form.photo)}
                 className="font-unbounded font-bold bg-purple-500 w-36 py-4  border-2 border-r-4 border-b-4 border-black hover:bg-orange-500"
               >
-                {loading ? "Saving..." : "Save"}
+                Save
               </button>
               <button
                 type="submit"
