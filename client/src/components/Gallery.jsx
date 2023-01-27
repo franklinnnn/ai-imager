@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Card, Form, Loader, Create, Gallery, About } from "../components";
+import React, { useState } from "react";
+import { Form, Card, Loader } from "../components";
 
 const RenderCards = ({ data, title }) => {
   if (data?.length > 0) {
@@ -9,48 +9,18 @@ const RenderCards = ({ data, title }) => {
   return (
     <h2
       className="mt-5 font-bold text-[#6449ff]
-        text-xl uppercase"
+          text-xl uppercase"
     >
       {title}
     </h2>
   );
 };
 
-const Home = () => {
-  const [loading, setLoading] = useState(false);
-  const [allPosts, setAllPosts] = useState(null);
+const Gallery = ({ allPosts }) => {
   const [searchText, setSearchText] = useState("");
   const [searchedResults, setSelectedResults] = useState(null);
   const [searchTimeout, setSearchTimeout] = useState(null);
-
-  const fetchPosts = async () => {
-    setLoading(true);
-
-    try {
-      const response = await fetch(
-        "https://ai-image-t4d7.onrender.com/api/v1/post",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (response.ok) {
-        const result = await response.json();
-        setAllPosts(result.data.reverse());
-      }
-    } catch (err) {
-      alert(err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchPosts();
-  }, []);
+  const [loading, setLoading] = useState(false);
 
   const handleSearchChange = (e) => {
     setSearchText(e.target.value);
@@ -64,26 +34,30 @@ const Home = () => {
       }, 500)
     );
   };
-
   return (
-    <section className="max-w-6xl mx-auto">
-      <Create />
-      <Gallery allPosts={allPosts} />
-      {/* <div>
-        <h1 className="font-extrabold text=[#000] text-[32px]">Showcase</h1>
-        <p className="mt-2 text-[#666e75] text-[16px] max-w-[500]">Browse</p>
+    <section
+      className="w-full mx-auto border-b-8 border-black py-8 bg-gradient-to-br from-[#14CC60] to-[#27FB6B]"
+      id="gallery"
+    >
+      <div className="mx-4 flex items-center gap-4">
+        <h1 className="font-unbounded font-extrabold text-[60px] uppercase">
+          gallery
+        </h1>
+        <p className="font-barlow font-bold uppercase mt-2 text-[24px] max-w-[500px]">
+          browse generated images
+        </p>
       </div>
-      <div className="mt-16">
+      <div className="m-4">
         <Form
-          labelName="search posts"
+          labelName="search"
           type="text"
-          name="text"
+          name="search"
           placeholder="search posts"
           value={searchText}
           handleChange={handleSearchChange}
         />
       </div>
-      <div className="mt-10">
+      <div className="my-10 mx-4">
         {loading ? (
           <div className="flex justify-center items-center">
             {" "}
@@ -108,10 +82,9 @@ const Home = () => {
             </div>
           </div>
         )}
-      </div> */}
-      <About />
+      </div>
     </section>
   );
 };
 
-export default Home;
+export default Gallery;

@@ -1,29 +1,30 @@
 import React from "react";
 
 const Form = ({
-  labelname,
+  labelName,
   type,
   name,
   placeholder,
   value,
   handleChange,
+  ref,
   isSurpriseMe,
   handleSurpriseMe,
 }) => {
   return (
-    <div>
-      <div className="flex items-center gap-2 mb-2">
+    <div className="w-full">
+      <div className="flex justify-between items-center gap-2 mb-2">
         <label
           htmlFor={name}
-          className="block text-sm font-medium text-gray-900"
+          className="block font-barlow text-[40px] font-bold text-black mb-[-1rem] uppercase"
         >
-          {labelname}
+          {labelName}
         </label>
         {isSurpriseMe && (
           <button
             type="button"
             onClick={handleSurpriseMe}
-            className="font-semibold text-sx bg-[#ecf1f1] py-1 px-2 rounded-[5px] text-black"
+            className="font-unbounded font-semibold text-sx bg-[#ecf1f1] py-1 px-2 bg-red-500 border-2 border-b-4 border-r-4 border-black text-black hover:bg-[#FCBA04]"
           >
             Surprise me{" "}
           </button>
@@ -37,7 +38,7 @@ const Form = ({
         value={value}
         onChange={handleChange}
         required
-        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#4649ff] focus-botder-[#4649ff] outline-none block w-full p-3"
+        className="bg-white/20 border-2 border-b-4 border-r-4 border-black font-barlow placeholder-gray-900 text-gray/50 text-m outline-none block w-full p-3 focus:bg-white"
       />
     </div>
   );
