@@ -100,7 +100,7 @@ const CreatePost = () => {
         </p>
       </div>
 
-      <form className="m-4 w-full mx-auto" onSubmit={handleSubmit}>
+      <form className="m-4 w-full mx-auto">
         <div className="flex flex-col gap-5 mx-4">
           <Form
             labelName="NAME"
@@ -168,7 +168,7 @@ const CreatePost = () => {
                 Save
               </button>
               <button
-                type="submit"
+                onClick={handleSubmit}
                 className="font-unbounded font-bold bg-purple-500 w-36 py-4 border-2 border-r-4 border-b-4 border-black hover:bg-orange-500"
               >
                 {loading ? "Posting..." : "Post"}
