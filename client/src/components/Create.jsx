@@ -1,5 +1,7 @@
 import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast, Slide } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { preview } from "../assets";
 import { getRandomPrompt, downloadImage } from "../utils";
@@ -47,13 +49,13 @@ const CreatePost = () => {
         const data = await response.json();
         setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
       } catch (err) {
-        alert(err);
+        toast(err);
       } finally {
         setGeneratingImg(false);
         setOptions(true);
       }
     } else {
-      alert("Please provide proper prompt");
+      toast("Please provide proper prompt");
     }
   };
 
@@ -75,10 +77,10 @@ const CreatePost = () => {
         );
 
         await response.json();
-        alert("Success");
+        toast("Success");
         navigate("/");
       } catch (err) {
-        alert(err);
+        toast(err);
       } finally {
         setLoading(false);
         window.location.reload(false);
@@ -87,7 +89,7 @@ const CreatePost = () => {
           .scrollIntoView({ behavior: "smooth" });
       }
     } else {
-      alert("Please generate an image with proper details");
+      toast("Please generate an image with proper details");
     }
   };
 
@@ -176,6 +178,19 @@ const CreatePost = () => {
             </div>
           </div>
         )}
+        <ToastContainer
+          position="bottom-center"
+          autoClose={2500}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+          transition={Slide}
+        />
       </form>
     </section>
   );

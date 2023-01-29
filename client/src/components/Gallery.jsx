@@ -8,7 +8,7 @@ const RenderCards = ({ data, title }) => {
 
   return (
     <h2
-      className="mt-5 font-bold text-[#6449ff]
+      className="mt-5 font-unbounded font-bold text-black
           text-xl uppercase"
     >
       {title}
@@ -16,24 +16,27 @@ const RenderCards = ({ data, title }) => {
   );
 };
 
-const Gallery = ({ allPosts }) => {
+const Gallery = ({ allPosts, loading }) => {
   const [searchText, setSearchText] = useState("");
-  const [searchedResults, setSelectedResults] = useState(null);
+  const [searchedResults, setSearchedResults] = useState(null);
   const [searchTimeout, setSearchTimeout] = useState(null);
-  const [loading, setLoading] = useState(false);
 
   const handleSearchChange = (e) => {
+    clearTimeout(searchTimeout);
     setSearchText(e.target.value);
+
     setSearchTimeout(
       setTimeout(() => {
-        const searchResults = allPosts.filter((item) => {
-          item.name.toLowerCase().includes(searchText.toLowerCase()) ||
-            item.prompt.toLowerCase().includes(searchText.toLowerCase());
-        });
-        setSelectedResults(searchResults);
+        const searchResult = allPosts.filter(
+          (item) =>
+            item.name.toLowerCase().includes(searchText.toLowerCase()) ||
+            item.prompt.toLowerCase().includes(searchText.toLowerCase())
+        );
+        setSearchedResults(searchResult);
       }, 500)
     );
   };
+
   return (
     <section
       className="w-full mx-auto border-b-8 border-black py-8 bg-gradient-to-br from-[#14CC60] to-[#27FB6B]"
@@ -66,8 +69,9 @@ const Gallery = ({ allPosts }) => {
         ) : (
           <div>
             {searchText && (
-              <h2 className="font-medium text-[#666e75] text-xl mb-3">
-                Results for <span className="text-[#222328]">{searchText}</span>
+              <h2 className="font-medium text-black text-xl mb-3">
+                Results for{" "}
+                <span className="font-unbounded text-black">{searchText}</span>
               </h2>
             )}
             <div className="grid lg:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-3">

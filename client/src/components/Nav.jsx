@@ -11,12 +11,6 @@ const Nav = () => {
           <img src={logo} alt="logo" className="w-24 object-contain mx-4" />
         </div>
       </Link>
-      {/* <Link
-        to="/create-post"
-        className="font-inter font-medium bg-[#6469ff] text-white px-4 py-2 mx-4 rounded-md"
-      >
-        Create
-      </Link> */}
       <div className="flex ">
         <a
           href="#gallery"
@@ -25,7 +19,7 @@ const Nav = () => {
               .getElementById("gallery")
               .scrollIntoView({ behavior: "smooth" })
           }
-          className="text-center font-barlow font-bold text-lg uppercase border-l-4 border-black w-36 py-10 bg-transparent hover:bg-[#14CC60] hover:font-unbounded ease-in-out duration-150"
+          className="text-center font-barlow font-bold text-lg uppercase border-l-4 border-black w-36 py-10 bg-transparent hover:bg-[#14CC60] hover:-translate-x-[0.4rem] hover:shadow-[0.6rem_0_0_0_black] hover:font-unbounded ease-in-out duration-150"
         >
           gallery
         </a>
@@ -36,7 +30,7 @@ const Nav = () => {
               .getElementById("about")
               .scrollIntoView({ behavior: "smooth" })
           }
-          className="text-center font-barlow font-bold text-lg uppercase border-l-4 border-black w-36 py-10 bg-transparent hover:bg-[#D90429] hover:font-unbounded rounded-tr-lg ease-in-out duration-150"
+          className="text-center font-barlow font-bold text-lg uppercase border-l-4 border-black w-36 py-10 bg-transparent hover:bg-[#D90429] hover:-translate-x-[0.4rem] hover:shadow-[0.6rem_0_0_0_black] hover:font-unbounded rounded-tr-lg ease-in-out duration-150"
         >
           about
         </a>

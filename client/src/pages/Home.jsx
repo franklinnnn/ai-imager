@@ -19,10 +19,6 @@ const RenderCards = ({ data, title }) => {
 const Home = () => {
   const [loading, setLoading] = useState(false);
   const [allPosts, setAllPosts] = useState(null);
-  const [searchText, setSearchText] = useState("");
-  const [searchedResults, setSelectedResults] = useState(null);
-  const [searchTimeout, setSearchTimeout] = useState(null);
-
   const fetchPosts = async () => {
     setLoading(true);
 
@@ -52,63 +48,10 @@ const Home = () => {
     fetchPosts();
   }, []);
 
-  const handleSearchChange = (e) => {
-    setSearchText(e.target.value);
-    setSearchTimeout(
-      setTimeout(() => {
-        const searchResults = allPosts.filter((item) => {
-          item.name.toLowerCase().includes(searchText.toLowerCase()) ||
-            item.prompt.toLowerCase().includes(searchText.toLowerCase());
-        });
-        setSelectedResults(searchResults);
-      }, 500)
-    );
-  };
-
   return (
     <section className="max-w-6xl mx-auto">
       <Create />
-      <Gallery allPosts={allPosts} />
-      {/* <div>
-        <h1 className="font-extrabold text=[#000] text-[32px]">Showcase</h1>
-        <p className="mt-2 text-[#666e75] text-[16px] max-w-[500]">Browse</p>
-      </div>
-      <div className="mt-16">
-        <Form
-          labelName="search posts"
-          type="text"
-          name="text"
-          placeholder="search posts"
-          value={searchText}
-          handleChange={handleSearchChange}
-        />
-      </div>
-      <div className="mt-10">
-        {loading ? (
-          <div className="flex justify-center items-center">
-            {" "}
-            <Loader />{" "}
-          </div>
-        ) : (
-          <div>
-            {searchText && (
-              <h2 className="font-medium text-[#666e75] text-xl mb-3">
-                Results for <span className="text-[#222328]">{searchText}</span>
-              </h2>
-            )}
-            <div className="grid lg:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-3">
-              {searchText ? (
-                <RenderCards
-                  data={searchedResults}
-                  title="No search results found"
-                />
-              ) : (
-                <RenderCards data={allPosts} title="No posts found" />
-              )}
-            </div>
-          </div>
-        )}
-      </div> */}
+      <Gallery allPosts={allPosts} loading={loading} />
       <About />
     </section>
   );
