@@ -39,14 +39,14 @@ const Gallery = ({ allPosts, loading }) => {
 
   return (
     <section
-      className="w-full mx-auto border-b-8 border-black py-8 bg-gradient-to-br from-[#14CC60] to-[#27FB6B]"
+      className="w-full mx-auto border-b-8 border-black py-8 bg-gradient-to-br from-[#14CC60] to-[#27FB6B]  xs:py-6"
       id="gallery"
     >
-      <div className="mx-4 flex items-center gap-4">
-        <h1 className="font-unbounded font-extrabold text-[60px] uppercase">
+      <div className="md:mx-4 md:flex md:flex-row items-center gap-4 xs:flex-col xs:px-2">
+        <h1 className="font-unbounded font-extrabold md:text-[60px] uppercase xs:text-4xl">
           gallery
         </h1>
-        <p className="font-barlow font-bold uppercase mt-2 text-[24px] max-w-[500px]">
+        <p className="font-barlow font-bold uppercase mt-2 md:text-[24px] max-w-[500px] xs:text-lg">
           browse generated images
         </p>
       </div>

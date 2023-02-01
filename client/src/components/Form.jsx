@@ -16,7 +16,7 @@ const Form = ({
       <div className="flex justify-between items-center gap-2 mb-2">
         <label
           htmlFor={name}
-          className="block font-barlow text-[40px] font-bold text-black mb-[-1rem] uppercase"
+          className="block font-barlow md:text-[40px] font-bold text-black md:mb-[-1rem] uppercase xs:text-[20px] xs:mb-0"
         >
           {labelName}
         </label>

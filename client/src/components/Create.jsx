@@ -77,8 +77,6 @@ const CreatePost = () => {
         );
 
         await response.json();
-        toast("Success");
-        navigate("/");
       } catch (err) {
         toast(err);
       } finally {
@@ -87,6 +85,7 @@ const CreatePost = () => {
         document
           .getElementById("gallery")
           .scrollIntoView({ behavior: "smooth" });
+        toast("Image posted successfully");
       }
     } else {
       toast("Please generate an image with proper details");
@@ -94,10 +93,12 @@ const CreatePost = () => {
   };
 
   return (
-    <section className="w-full mx-auto border-b-8 border-black py-8 bg-gradient-to-br from-[#FCBA04] to-[#D36135]">
-      <div className="mx-4 flex items-center gap-4">
-        <h1 className="font-unbounded font-extrabold text-[60px]">CREATE</h1>
-        <p className="font-barlow font-bold uppercase mt-2 text-[24px] max-w-[500px]">
+    <section className="w-full mx-auto border-b-8 border-black md:py-8 bg-gradient-to-br from-[#FCBA04] to-[#D36135] xs:py-6">
+      <div className="md:mx-4 md:flex md:flex-row items-center gap-4 xs:flex-col xs:px-2 ">
+        <h1 className="font-unbounded font-extrabold md:text-[60px] uppercase xs:text-4xl">
+          CREATE
+        </h1>
+        <p className="font-barlow font-bold uppercase mt-2 md:text-[24px] max-w-[500px] xs:text-lg">
           Generate image from text
         </p>
       </div>
@@ -124,7 +125,7 @@ const CreatePost = () => {
             handleSurpriseMe={handleSurpriseMe}
           />
 
-          <div className="relative self-center bg-blue-50 rounded-md border-4 border-r-8 border-b-8 border-black text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 w-80 h-80 p-2 flex justify-center items-center hover:border-4 hover:border-t-8 hover:border-l-8 hover:-translate-y-2 ease-in-out duration-150">
+          <div className="relative self-center bg-blue-50 rounded-md border-4 border-r-8 border-b-8 border-black text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 md:w-80 md:h-80 p-2 flex justify-center items-center hover:border-4 hover:border-t-8 hover:border-l-8 hover:-translate-y-2 ease-in-out duration-150 xs:w-60 xs:h-60">
             {form.photo ? (
               <img
                 src={form.photo}
@@ -151,7 +152,7 @@ const CreatePost = () => {
           <button
             type="button"
             onClick={generateImage}
-            className="font-unbounded font-bold text-lg bg-violet-500 w-80 py-4 rounded-md border-2 border-r-4 border-b-4 border-black hover:bg-green-500 ease-in-out duration-300 hover:-translate-y-1"
+            className="font-unbounded font-bold text-lg bg-violet-500 md:w-80 py-4 rounded-md border-2 border-r-4 border-b-4 border-black hover:bg-green-500 ease-in-out duration-300 hover:-translate-y-1 xs:w-60"
           >
             {generatingImg ? "Generating..." : "Generate"}
           </button>
@@ -159,19 +160,19 @@ const CreatePost = () => {
 
         {options && (
           <div className="mt-8 flex flex-col justify-center items-center pb-6">
-            <p className="font-barlow font-bold text-lg mt-2 ">
+            <p className="font-barlow font-bold md:text-lg mt-2 xs:text-base px-6">
               Image is ready. You can save your image or post it to the gallery.
             </p>
             <div className="flex justify-center gap-6 mt-4">
               <button
                 onClick={() => downloadImage(form.prompt, form.photo)}
-                className="font-unbounded font-bold bg-purple-500 w-36 py-4 rounded-md border-2 border-r-4 border-b-4 border-black hover:bg-orange-500 ease-in-out duration-300 hover:-translate-y-1"
+                className="font-unbounded font-bold bg-purple-500 md:w-36 xs:w-28 py-4 rounded-md border-2 border-r-4 border-b-4 border-black hover:bg-orange-500 ease-in-out duration-300 hover:-translate-y-1"
               >
                 Save
               </button>
               <button
                 onClick={handleSubmit}
-                className="font-unbounded font-bold bg-purple-500 w-36 py-4 rounded-md border-2 border-r-4 border-b-4 border-black hover:bg-orange-500 ease-in-out duration-300 hover:-translate-y-1"
+                className="font-unbounded font-bold bg-purple-500 md:w-36 xs:w-28 py-4 rounded-md border-2 border-r-4 border-b-4 border-black hover:bg-orange-500 ease-in-out duration-300 hover:-translate-y-1"
               >
                 {loading ? "Posting..." : "Post"}
               </button>
