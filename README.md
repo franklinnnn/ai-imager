@@ -4,4 +4,4 @@ Image generator using OpenAI's DALL·E API. Type a prompt or get a random prompt
 
 ![AI Imager](/img/demo01.gif) ![AI Imager](/img/demo02.gif) ![AI Imager](/img/demo03.gif)
 
-## [**Try it here**](https://ai-image-app.vercel.app/)
+## [**Try it here**](https://ai-imager.vercel.app/)
